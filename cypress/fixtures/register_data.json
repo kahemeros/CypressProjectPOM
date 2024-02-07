@@ -9,5 +9,6 @@
     "country": "Turkey",
     "phone": "05558887799",
     "email": "faker1234@faker.com",
-    "password": "123456"
+    "password": "123456",
+    "emailAlreadyExistMessage": "A customer with this email address already exists."
 }

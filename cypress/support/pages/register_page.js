@@ -36,6 +36,7 @@ class RegisterPage {
     this.emailInput = "#email";
     this.passwordInput = "#password";
     this.registerButton = "button[type='submit']";
+    this.emailAlreadyExistMessage = ".help-block"
   }
   // Metotlar
   writeFirstName(firstName) {
@@ -73,6 +74,9 @@ class RegisterPage {
   }
   clickRegister() {
     cy.get(this.registerButton).click();
+  }
+  verifyEmailAlreadyExistMessage(errorMessage) {
+    cy.get(this.emailAlreadyExistMessage).should("be.visible").and("have.text", errorMessage)
   }
 }
 export const register = new RegisterPage();
