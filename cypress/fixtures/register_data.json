@@ -1,0 +1,13 @@
+{
+    "firstName": "Mehmet Ali",
+    "lastName": "Yılmaz",
+    "dateOfBirth": "1980-12-12",
+    "address": "Bağlık Mah. Tavşan Sk. No:21",
+    "postCode": "50500",
+    "city": "Zonguldak",
+    "state": "Ereğli",
+    "country": "Turkey",
+    "phone": "05558887799",
+    "email": "faker1234@faker.com",
+    "password": "123456"
+}

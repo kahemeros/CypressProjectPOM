@@ -38,43 +38,42 @@ class RegisterPage {
     this.registerButton = "button[type='submit']";
   }
   // Metotlar
-  writeFirstName() {
-    cy.get(this.firstNameInput).type("Mehmet Ali");
+  writeFirstName(firstName) {
+    cy.get(this.firstNameInput).type(firstName);
   }
-  writeLastName() {
-    cy.get(this.lastNameInput).type("Yılmaz");
+  writeLastName(lastName) {
+    cy.get(this.lastNameInput).type(lastName);
   }
-  writeDateOfBirth() {
-    cy.get(this.dateOfBirthInput).type("1980-12-12"); 
+  writeDateOfBirth(dateOfBirth) {
+    cy.get(this.dateOfBirthInput).type(dateOfBirth);
   }
-  writeAddress() {
-    cy.get(this.addressInput).type("Bağlık Mah. Tavşan Sk. No:21"); 
+  writeAddress(address) {
+    cy.get(this.addressInput).type(address);
   }
-  writePostCode() {
-    cy.get(this.postCodeInput).type("50500"); 
+  writePostCode(postCode) {
+    cy.get(this.postCodeInput).type(postCode);
   }
-  writeCity() {
-    cy.get(this.cityInput).type("Zonguldak"); 
+  writeCity(city) {
+    cy.get(this.cityInput).type(city);
   }
-  writeState() {
-    cy.get(this.stateInput).type("Ereğli"); 
+  writeState(state) {
+    cy.get(this.stateInput).type(state);
   }
-  selectCountry() {
-    cy.get(this.countrySelect).select("Turkey"); 
+  selectCountry(country) {
+    cy.get(this.countrySelect).select(country);
   }
-  writePhone() {
-    cy.get(this.phoneInput).type("05558887799"); 
+  writePhone(phone) {
+    cy.get(this.phoneInput).type(phone);
   }
-  writeEmail() {
-    cy.get(this.emailInput).type("faker4@faker.com"); 
+  writeEmail(email) {
+    cy.get(this.emailInput).type(email);
   }
-  writePassword() {
-    cy.get(this.passwordInput).type("12345678"); 
+  writePassword(password) {
+    cy.get(this.passwordInput).type(password);
   }
   clickRegister() {
     cy.get(this.registerButton).click();
   }
-
 }
 export const register = new RegisterPage();
 // Objeyi test class'ta da oluşturabilirdik.

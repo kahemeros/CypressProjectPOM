@@ -5,8 +5,8 @@ class LoginPage{
     }
 
     // Metotlar
-    verifyPageTitle() {
-        cy.get(this.pageTitle).should("have.text", "Login")
+    verifyPageTitle(pageTitle) {
+        cy.get(this.pageTitle).should("have.text", pageTitle)
     }    
 }
 export const login = new LoginPage()
