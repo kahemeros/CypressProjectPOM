@@ -1,0 +1,14 @@
+{
+  "name": "cypressb249pom",
+  "version": "1.0.0",
+  "description": "Cypress B249 Page Object Model ve Data Driven Test Frameworkü",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Erdal",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.6.4"
+  }
+}
