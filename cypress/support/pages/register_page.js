@@ -1,5 +1,5 @@
 class RegisterPage {
-  // Data Driven POM'larda locate'ler ve bu locate'leri kullandığımız metotlar page class'larında (pages->..._pages.js), buradaki metotları kullandığımız test class'lar ise ilgili test class'larında olur.
+  // Data Driven POM'larda locate'ler ve bu locate'leri kullandığımız metotlar page class'larında (pages->..._pages.js), page class'lardaki metotları kullandığımız test metotları ise ilgili test class'larında olur.
   // Page class'lar oluşturulurken 2 farklı yöntem var. 2. yöntem daha modern, sade ve kolay.
   /*
 =================== 1. YÖNTEM ===================
@@ -22,7 +22,7 @@ class RegisterPage {
 
 */
   // ================ 2. YÖNTEM ===================
-  // Web Elementleri
+  // Web Elementler:
   constructor() {
     this.firstNameInput = "#first_name";
     this.lastNameInput = "#last_name";
@@ -36,9 +36,21 @@ class RegisterPage {
     this.emailInput = "#email";
     this.passwordInput = "#password";
     this.registerButton = "button[type='submit']";
-    this.emailAlreadyExistMessage = ".help-block"
+    this.emailAlreadyExistMessage = ".help-block";
+    this.passwordMinLengthErrorMessage = ".alert-danger";
+    this.firstNameError = "[data-test='first-name-error']";
+    this.lastNameError = "[data-test='last-name-error']";
+    this.dateOfBirthError = "[data-test='dob-error']";
+    this.addressError = "[data-test='address-error']";
+    this.postCodeError = "[data-test='postcode-error']";
+    this.cityError = "[data-test='city-error']";
+    this.stateError = "[data-test='state-error']";
+    this.countryError = "[data-test='country-error']";
+    this.phoneError = "[data-test='phone-error']";
+    this.emailError = "[data-test='email-error']";
+    this.passwordError = "[data-test='password-error']";
   }
-  // Metotlar
+  // Metotlar:
   writeFirstName(firstName) {
     cy.get(this.firstNameInput).type(firstName);
   }
@@ -76,7 +88,43 @@ class RegisterPage {
     cy.get(this.registerButton).click();
   }
   verifyEmailAlreadyExistMessage(errorMessage) {
-    cy.get(this.emailAlreadyExistMessage).should("be.visible").and("have.text", errorMessage)
+    cy.get(this.emailAlreadyExistMessage).should("have.text", errorMessage);
+  }
+  verifyPasswordMinLengthErrorMessage(errorMessage) {
+    cy.get(this.passwordMinLengthErrorMessage).should("contain", errorMessage);
+  }
+  verifyFirstNameRequiredMessage(errorMessage) {
+    cy.get(this.firstNameError).should("contain", errorMessage);
+  }
+  verifyLastNameRequiredMessage(errorMessage) {
+    cy.get(this.lastNameError).should("contain", errorMessage);
+  }
+  verifyDateOfBirthRequiredMessage(errorMessage) {
+    cy.get(this.dateOfBirthError).should("contain", errorMessage);
+  }
+  verifyAddressRequiredMessage(errorMessage) {
+    cy.get(this.addressError).should("contain", errorMessage);
+  }
+  verifyPostCodeRequiredMessage(errorMessage) {
+    cy.get(this.postCodeError).should("contain", errorMessage);
+  }
+  verifyCityRequiredMessage(errorMessage) {
+    cy.get(this.cityError).should("contain", errorMessage);
+  }
+  verifyStateRequiredMessage(errorMessage) {
+    cy.get(this.stateError).should("contain", errorMessage);
+  }
+  verifyCountryRequiredMessage(errorMessage) {
+    cy.get(this.countryError).should("contain", errorMessage);
+  }
+  verifyPhoneRequiredMessage(errorMessage) {
+    cy.get(this.phoneError).should("contain", errorMessage);
+  }
+  verifyEmailRequiredMessage(errorMessage) {
+    cy.get(this.emailError).should("contain", errorMessage);
+  }
+  verifyPasswordRequiredMessage(errorMessage) {
+    cy.get(this.passwordError).should("contain", errorMessage);
   }
 }
 export const register = new RegisterPage();

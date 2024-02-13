@@ -36,7 +36,23 @@ describe("Register Tests", () => {
     register.clickRegister();
     login.verifyPageTitle(loginData.pageTitle);
   });
-  it('TC03 - Register test with the same email data', () => {
+
+  it("TC02 - Registere test with passwords less than 5 characters", () => {
+    register.writeFirstName(registerData.firstName);
+    register.writeLastName(registerData.lastName);
+    register.writeDateOfBirth(registerData.dateOfBirth);
+    register.writeAddress(registerData.address);
+    register.writePostCode(registerData.postCode);
+    register.writeCity(registerData.city);
+    register.writeState(registerData.state);
+    register.selectCountry(registerData.country);
+    register.writePhone(registerData.phone);
+    register.writeEmail(fakeMail);
+    register.writePassword(registerData.fiveDigitPassword);
+    register.clickRegister();
+    register.verifyPasswordMinLengthErrorMessage(registerData.passwordMinLengthErrorMessage);
+  });
+  it("TC03 - Register test with the same email data", () => {
     register.writeFirstName(registerData.firstName);
     register.writeLastName(registerData.lastName);
     register.writeDateOfBirth(registerData.dateOfBirth);
@@ -49,6 +65,21 @@ describe("Register Tests", () => {
     register.writeEmail(fakeMail);
     register.writePassword(registerData.password);
     register.clickRegister();
-    register.verifyEmailAlreadyExistMessage(registerData.emailAlreadyExistMessage)
+    register.verifyEmailAlreadyExistMessage(registerData.emailAlreadyExistMessage);
+  });
+
+  it.only("TC04 - Register test with all required fields are filled", () => {
+    register.clickRegister();
+    register.verifyFirstNameRequiredMessage(registerData.firstNameRequiredMessage);
+    register.verifyLastNameRequiredMessage(registerData.lastNameRequiredMessage);
+    register.verifyDateOfBirthRequiredMessage(registerData.dateOfBirthRequiredMessage);
+    register.verifyAddressRequiredMessage(registerData.addressRequiredMessage);
+    register.verifyPostCodeRequiredMessage(registerData.postCodeRequiredMessage);
+    register.verifyCityRequiredMessage(registerData.cityRequiredMessage);
+    register.verifyStateRequiredMessage(registerData.stateRequiredMessage);
+    register.verifyCountryRequiredMessage(registerData.countryRequiredMessage);
+    register.verifyPhoneRequiredMessage(registerData.phoneRequiredMessage);
+    register.verifyEmailRequiredMessage(registerData.emailRequiredMessage);
+    register.verifyPasswordRequiredMessage(registerData.passwordRequiredMessage);
   });
 });
