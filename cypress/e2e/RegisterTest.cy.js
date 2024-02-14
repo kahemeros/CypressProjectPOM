@@ -37,7 +37,7 @@ describe("Register Tests", () => {
     login.verifyPageTitle(loginData.pageTitle);
   });
 
-  it("TC02 - Registere test with passwords less than 5 characters", () => {
+  it("TC02 - Register test with passwords less than 5 characters", () => {
     register.writeFirstName(registerData.firstName);
     register.writeLastName(registerData.lastName);
     register.writeDateOfBirth(registerData.dateOfBirth);
@@ -47,7 +47,7 @@ describe("Register Tests", () => {
     register.writeState(registerData.state);
     register.selectCountry(registerData.country);
     register.writePhone(registerData.phone);
-    register.writeEmail(fakeMail);
+    register.writeEmail(faker.internet.email());
     register.writePassword(registerData.fiveDigitPassword);
     register.clickRegister();
     register.verifyPasswordMinLengthErrorMessage(registerData.passwordMinLengthErrorMessage);
@@ -68,7 +68,7 @@ describe("Register Tests", () => {
     register.verifyEmailAlreadyExistMessage(registerData.emailAlreadyExistMessage);
   });
 
-  it.only("TC04 - Register test with all required fields are filled", () => {
+  it("TC04 - Validating required field messages", () => {
     register.clickRegister();
     register.verifyFirstNameRequiredMessage(registerData.firstNameRequiredMessage);
     register.verifyLastNameRequiredMessage(registerData.lastNameRequiredMessage);
