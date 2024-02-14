@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import { login } from "../support/pages/login_page";
 import { register } from "../support/pages/register_page";
 
-describe("Register Tests", () => {
+describe("Register Test Suite", () => {
   let registerData;
   let loginData;
   let fakeMail;
@@ -19,7 +19,7 @@ describe("Register Tests", () => {
   beforeEach(() => {
     cy.visit("/" + Cypress.env("register"));
   });
-  it("TC01 - Register test with valid data", () => {
+  it.only("TC01 - Register test with valid data", () => {
     // ilgili page class'ında oluşturduğumuz objenin ismini yazdığımız anda Cypress objenin yolunu gösteriyor. Enter ile çağırıyoruz. Import etme işini Cypress yapıyor. Obje isminin yanına . (nokta) koyduğumuzda o objeye bağlı metotlar (ve dahi locate'ler) da listeleniyor. Kullanacağımız metotu seçiyoruz.
 
     register.writeFirstName(registerData.firstName);

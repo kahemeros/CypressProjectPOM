@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "registerTest": "npx cypress run --browser chrome --headed --spec cypress/e2e/RegisterTest.cy.js"
+    "registerTest": "npx cypress run --browser chrome --headed --spec cypress/e2e/RegisterTest.cy.js",
+    "crossBrowserTest": "npx cypress run --browser chrome --headed & npx cypress run --browser edge --headed & npx cypress run --browser firefox --headed --spec cypress/e2e/RegisterTest.cy.js"
   },
   "author": "Erdal",
   "license": "ISC",
